@@ -40,3 +40,27 @@ https://docs.djangoproject.com/en/1.9/intro/tutorial01/
 
 Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE.
 To watch some training videos, visit http://www.youtube.com/user/c9ide
+
+
+####################################################################################
+sugimoto added below
+####################################################################################
+
+下記のURLを参考に、RESTful apiを実装しました。
+https://qiita.com/KojiOhki/items/5be98eeae72dca2260bc
+
+【注意点】
+1. サーバー起動前に一度DB migrate(db.sqlite3ファイルをDBに反映させる)必要があります
+(manage.pyのある階層で)
+python manage.py migrate 
+
+2. サーバーの実行コマンド
+正：cloud9のGUI上にあるRUNボタンを押す
+誤：python manage.py runserver　を実行する
+
+3.ブログ書いた人はプロジェクトを新規作成していますが、
+cloud9でDjangoを開いた時にすでにプロジェクトがあったため既存のプロジェクトを流用しました。
+
+4.その他
+開発の段階では、Djangoサーバー上でhtml(のフォーム)を生成して、
+そこから自サーバーに対してapiを叩くのが楽だと思います。
