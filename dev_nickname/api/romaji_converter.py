@@ -101,24 +101,24 @@ def _make_romaji_convertor():
     
     
     romaji_asist = {
-        # 'si' :'シ'  , 'ti' :'チ'  , 'hu' :'フ' , 'zi':'ジ',
-        # 'sya':'シャ', 'syu':'シュ', 'syo':'ショ',
-        # 'tya':'チャ', 'tyu':'チュ', 'tyo':'チョ',
-        # 'cya':'チャ', 'cyu':'チュ', 'cyo':'チョ',
-        # 'jya':'ジャ', 'jyu':'ジュ', 'jyo':'ジョ', 'pha':'ファ', 
-        # 'qa' :'クァ', 'qi' :'クィ', 'qu' :'クゥ', 'qe' :'クェ', 'qo':'クォ',
+        'si' :'シ'  , 'ti' :'チ'  , 'hu' :'フ' , 'zi':'ジ',
+        'sya':'シャ', 'syu':'シュ', 'syo':'ショ',
+        'tya':'チャ', 'tyu':'チュ', 'tyo':'チョ',
+        'cya':'チャ', 'cyu':'チュ', 'cyo':'チョ',
+        'jya':'ジャ', 'jyu':'ジュ', 'jyo':'ジョ', 'pha':'ファ', 
+        'qa' :'クァ', 'qi' :'クィ', 'qu' :'クゥ', 'qe' :'クェ', 'qo':'クォ',
         
-        # 'ca' :'カ', 'ci':'シ', 'cu':'ク', 'ce':'セ', 'co':'コ',
-        # 'la' :'ラ', 'li':'リ', 'lu':'ル', 'le':'レ', 'lo':'ロ',
+        'ca' :'カ', 'ci':'シ', 'cu':'ク', 'ce':'セ', 'co':'コ',
+        'la' :'ラ', 'li':'リ', 'lu':'ル', 'le':'レ', 'lo':'ロ',
 
-        # 'mb' :'ム', 'py':'パイ', 'tho': 'ソ', 'thy':'ティ', 'oh':'オウ',
-        # 'by':'ビィ', 'cy':'シィ', 'dy':'ディ', 'fy':'フィ', 'gy':'ジィ',
-        # 'hy':'シー', 'ly':'リィ', 'ny':'ニィ', 'my':'ミィ', 'ry':'リィ',
-        # 'ty':'ティ', 'vy':'ヴィ', 'zy':'ジィ',
+        'mb' :'ム', 'py':'パイ', 'tho': 'ソ', 'thy':'ティ', 'oh':'オウ',
+        'by':'ビィ', 'cy':'シィ', 'dy':'ディ', 'fy':'フィ', 'gy':'ジィ',
+        'hy':'シー', 'ly':'リィ', 'ny':'ニィ', 'my':'ミィ', 'ry':'リィ',
+        'ty':'ティ', 'vy':'ヴィ', 'zy':'ジィ',
         
-        # 'b':'ブ', 'c':'ク', 'd':'ド', 'f':'フ'  , 'g':'グ', 'h':'フ', 'j':'ジ',
-        # 'k':'ク', 'l':'ル', 'm':'ム', 'p':'プ'  , 'q':'ク', 'r':'ル', 's':'ス',
-        # 't':'ト', 'v':'ヴ', 'w':'ゥ', 'x':'クス', 'y':'ィ', 'z':'ズ',
+        'b':'ブ', 'c':'ク', 'd':'ド', 'f':'フ'  , 'g':'グ', 'h':'フ', 'j':'ジ',
+        'k':'ク', 'l':'ル', 'm':'ム', 'p':'プ'  , 'q':'ク', 'r':'ル', 's':'ス',
+        't':'ト', 'v':'ヴ', 'w':'ゥ', 'x':'クス', 'y':'ィ', 'z':'ズ',
         }
     
 
@@ -130,8 +130,8 @@ def _make_romaji_convertor():
         for tbl in master, romaji_asist:
             for k, v in tbl.items(): romaji_dict[k] = v
         
-        romaji_keys = romaji_dict.keys()
-        # romaji_keys.sort(key=lambda x:len(x), reverse=True)
+        romaji_keys = list(romaji_dict.keys())
+        romaji_keys.sort(key=lambda x:len(x), reverse=True)
         sorted(romaji_keys)
         
         re_roma2kana = re.compile("|".join(map(re.escape, romaji_keys)))
@@ -161,8 +161,8 @@ def _make_romaji_convertor():
         for tbl in master, kana_asist:
             for k, v in tbl.items(): kana_dict[v] = k
 
-        kana_keys = kana_dict.keys()
-        # kana_keys.sort(key=lambda x:len(x), reverse=True)
+        kana_keys = list(kana_dict.keys())
+        kana_keys.sort(key=lambda x:len(x), reverse=True)
         sorted(kana_keys)
         
         re_kana2roma = re.compile("|".join(map(re.escape, kana_keys)))

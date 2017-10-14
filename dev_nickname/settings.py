@@ -25,7 +25,8 @@ SECRET_KEY = '3wpcg@518k-4=i1t9^k$d17h(^s9%6p-96eqex3%*_!&05o%1-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dev_nickname-dolche.c9users.io']
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['dev_nickname-dolche.c9users.io']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'dev_nickname.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join('', 'static')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
