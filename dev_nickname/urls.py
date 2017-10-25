@@ -19,15 +19,13 @@ from django.conf.urls import include, url
 from django.views.generic import RedirectView
 from rest_framework.routers import DefaultRouter
 from .api import views
-from .api.views import name
+from .api.views import hiragana
+from .api.views import katakana
 
 
 router = DefaultRouter()
-router.register(r'todos', views.TodoViewSet)
 
 urlpatterns = [
-    url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    # url('', ('^name/$', name)),
-    url(r'^nickname', views.name, name="name"),
+    url(r'^nickname/hiragana', views.hiragana, name="name"),
+    url(r'^nickname/katakana', views.katakana, name="name"),
 ]
