@@ -33,6 +33,10 @@ def hiragana(request):
         
         # 結果を返す
         response = HttpResponse(content=result, content_type='application/json; charset=UTF-8', status=200)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
         return response
         
     else:
@@ -65,6 +69,10 @@ def katakana(request):
         
         # 結果を返す
         response = HttpResponse(content=result, content_type='application/json; charset=UTF-8', status=200)
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        response["Access-Control-Max-Age"] = "1000"
+        response["Access-Control-Allow-Headers"] = "*"
         return response
         
     else:
