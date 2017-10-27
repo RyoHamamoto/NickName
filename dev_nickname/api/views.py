@@ -8,6 +8,7 @@ from .character_converter import chara2romaji
 from .romaji_converter import romaji2hiragana
 from .romaji_converter import romaji2katakana
 import json
+import mojimoji
 
 
 def hiragana(request):
@@ -17,9 +18,13 @@ def hiragana(request):
         dic = []
         
         for key in request.POST:
+         
+         # アルファベット以外半角を全角へ変換する処理
+         nam  = mojimoji.zen_to_han(request.POST[key])
+         name = mojimoji.han_to_zen(nam, ascii=False)
         
          # 送られてきたリクエストを全てローマ字変換
-         n = chara2romaji(request.POST[key])
+         n = chara2romaji(name)
 
          # 全てローマ字に変換された文字列をひらがなに変換
          nickname = romaji2hiragana(n)
@@ -54,8 +59,12 @@ def katakana(request):
         
         for key in request.POST:
         
+         # アルファベット以外半角を全角へ変換する処理
+         nam  = mojimoji.zen_to_han(request.POST[key])
+         name = mojimoji.han_to_zen(nam, ascii=False)
+        
          # 送られてきたリクエストを全てローマ字変換
-         n = chara2romaji(request.POST[key])
+         n = chara2romaji(name)
 
          # 全てローマ字に変換された文字列をカタカナに変換
          nickname = romaji2katakana(n)
