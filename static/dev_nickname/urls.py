@@ -26,6 +26,6 @@ from .api.views import katakana
 router = DefaultRouter()
 
 urlpatterns = [
-    url(r'^nickname/hiragana', views.hiragana, name="name"),
-    url(r'^nickname/katakana', views.katakana, name="name"),
+    url(r'^nickname', views.hiragana, name="name"),
+    # url(r'^nickname/katakana', views.katakana, name="name"),
 ]
